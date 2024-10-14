@@ -2,6 +2,8 @@ function Paddle() {
     this.w = 160;
     this.h = 20;
 
+    this.speed = 5
+
     this.isMovingRight = false;
     this.isMovingLeft = false;
 
@@ -13,9 +15,9 @@ function Paddle() {
 
     this.update = function() {
         if (this.isMovingLeft) {
-          this.move(-20);
+          this.move(-this.speed);
         } else if (this.isMovingRight) {
-          this.move(20);
+          this.move(this.speed);
         }
     }
     
