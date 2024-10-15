@@ -3,7 +3,7 @@ function Ball() {
     this.speed = 5;
 
     this.r = 10;
-    this.direction = createVector(1, 1);
+    this.direction = createVector(1, -1);
     this.vel = createVector(1, 1).mult(this.speed);
 
     this.display = function() {

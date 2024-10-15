@@ -1,10 +1,22 @@
 var paddle;
 var ball;
 
+var bricks = [];
+
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(800, 952);
     paddle = new Paddle();
     ball = new Ball();
+
+    for(let i = 0; i < 3; i++) {
+        for (let j = 0; j < 7; j++) {
+            var brick = new Brick();
+            var iterator = 100;
+            brick.pos = createVector(j * iterator + 50, i * iterator + 100);
+            bricks.push(brick)
+        }    
+    }
+    console.log(bricks)
 }
 
 function draw() {
@@ -17,6 +29,10 @@ function draw() {
     ball.display();
     ball.update();
     ball.checkEdges();
+
+    for(let i = 0; i < bricks.length; i++) {
+        bricks[i].display()
+    }
 
     if(ball.meets(paddle) && ball.direction.y > 0) {
         ball.direction.y *= -1;
