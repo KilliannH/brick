@@ -1,8 +1,10 @@
 var paddle;
+var ball;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     paddle = new Paddle();
+    ball = new Ball();
 }
 
 function draw() {
@@ -11,7 +13,13 @@ function draw() {
     paddle.display();
     paddle.checkEdges()
     paddle.update();
+
+    ball.display();
+    ball.update();
+    ball.checkEdges();
 }
+
+
 
 function keyPressed() {
     if(key === 'ArrowLeft') {
@@ -22,3 +30,10 @@ function keyPressed() {
         paddle.isMovingLeft = false;
     }
 }
+
+function keyReleased() {
+    if(key === 'ArrowLeft' || key === 'ArrowRight') {
+        paddle.isMovingLeft = false;
+        paddle.isMovingRight = false;
+    }
+  }
