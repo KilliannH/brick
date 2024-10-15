@@ -17,6 +17,10 @@ function draw() {
     ball.display();
     ball.update();
     ball.checkEdges();
+
+    if(ball.meets(paddle) && ball.direction.y > 0) {
+        ball.direction.y *= -1;
+    }
 }
 
 
