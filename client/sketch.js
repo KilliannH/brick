@@ -32,6 +32,9 @@ function draw() {
 
     for(let i = 0; i < bricks.length; i++) {
         bricks[i].display()
+        if(ball.hits(bricks[i])) {
+            ball.direction.y *= -1;
+        }
     }
 
     if(ball.meets(paddle) && ball.direction.y > 0) {

@@ -1,12 +1,13 @@
 function Ball() {
-    this.pos = createVector(width / 2, height / 2);
+    this.pos = createVector(width / 2, 20);
     this.speed = 5;
 
     this.r = 10;
-    this.direction = createVector(1, -1);
+    this.direction = createVector(0, 1);
     this.vel = createVector(1, 1).mult(this.speed);
 
     this.display = function() {
+        fill(255)
         ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
     }
 
@@ -42,5 +43,19 @@ function Ball() {
             } else {
                 return false;
             }
+    }
+
+    this.hits = function(brick) {
+        if(
+            // y block
+            this.pos.y < brick.pos.y + brick.h + this.r &&
+            this.pos.y > brick.pos.y - this.r
+            
+            // x block    
+        ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
